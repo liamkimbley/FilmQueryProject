@@ -16,13 +16,14 @@ public class Film {
 	private String features;
 	private String rating;
 	private List<Actor> actorsList = new ArrayList<>();
+	private String language;
 
-	public Film(int filmId, String title, String desc, short releaseYear, int langId, int rentDur, double rate,
+	public Film(int filmId, String title, String desc, short releaseYear, String language, int rentDur, double rate,
 			int length, double repCost, String rating, String features) {
 		this.filmId = filmId;
 		this.title = title;
 		this.desc = desc;
-		this.langId = langId;
+		this.language = language;
 		this.releaseYear = releaseYear;
 		this.rentDur = rentDur;
 		this.rate = rate;
@@ -133,7 +134,7 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return  title + ",  " + releaseYear + ", Rated: " + rating + ",  " + desc;
+		return  "Film ID: " + filmId + " - " + title + ",  Released: " + releaseYear +", Language: " + language +  ", Rated: " + rating + ",  " + desc + "\nActors: " + actorsList + "\n";
 	}
 
 	@Override
@@ -201,6 +202,14 @@ public class Film {
 		} else if (!title.equals(other.title))
 			return false;
 		return true;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 }
