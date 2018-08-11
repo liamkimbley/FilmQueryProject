@@ -26,7 +26,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		final String sql = "SELECT id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features FROM film WHERE id = ?";
 		ResultSet rs = null;
 		
-
 		try {
 			conn = getDBConnection();
 			stmt = conn.prepareStatement(sql);
@@ -71,7 +70,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	public Actor getActorById(int actorId) throws SQLException {
 		final String sql = "SELECT id, first_name, last_name FROM actor WHERE id = ?";
 		ResultSet rs = null;
-		
 
 		try {
 			conn = getDBConnection();
@@ -109,7 +107,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		List<Actor> actors = new ArrayList<>();
 		final String sql = "SELECT actor.id, actor.first_name, actor.last_name FROM actor JOIN film_actor ON film_actor.actor_id = actor.id JOIN film on film.id = film_actor.film_id WHERE film_id = ?";
 		ResultSet rs = null;
-		
 
 		try {
 			conn = getDBConnection();
@@ -138,7 +135,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 		String language = null;
 		ResultSet rs = null;
-		
 		
 		try {
 			conn = getDBConnection();
@@ -185,7 +181,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		String language = null;
 		int lang = 0;
 		ResultSet rs = null;
-		
 
 		try {
 			conn = getDBConnection();
@@ -225,7 +220,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		final String sql = "SELECT name FROM language JOIN film ON language.id = film.language_id WHERE film.language_id = ?";
 		String result = null;
 		ResultSet rs = null;
-		
 
 		try {
 			stmt = conn.prepareStatement(sql);
