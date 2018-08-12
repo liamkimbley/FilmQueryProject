@@ -15,7 +15,6 @@ public class FilmQueryApp {
 	private DatabaseAccessor db = new DatabaseAccessorObject();
 	private Film film;
 	private Actor actor;
-	
 
 	public static void main(String[] args) {
 		FilmQueryApp app = new FilmQueryApp();
@@ -23,7 +22,7 @@ public class FilmQueryApp {
 		app.launch();
 	}
 
-	private void test()  {
+	private void test() {
 		try {
 			film = db.getFilmById(1);
 		} catch (SQLException e) {
@@ -78,7 +77,7 @@ public class FilmQueryApp {
 			}
 		}
 	}
-	
+
 	public void printMenu() {
 		System.out.println("What would you like to do?");
 		System.out.println("1. Search for a film by the Film ID");
@@ -86,7 +85,7 @@ public class FilmQueryApp {
 		System.out.println("0. Exit the application");
 		System.out.print("> ");
 	}
-	
+
 	public void searchFilmId(Scanner sc) {
 		System.out.print("Please enter the Film ID: ");
 		int filmId = sc.nextInt();
@@ -94,15 +93,14 @@ public class FilmQueryApp {
 		try {
 			if (db.getFilmById(filmId) != null) {
 				System.out.println(db.getFilmById(filmId));
-			}
-			else {
+			} else {
 				System.out.println("Film not found.");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public List<Film> searchByKeyword(Scanner sc) {
 		List<Film> films = new ArrayList<>();
 		System.out.print("Please enter a Title or keyword to search: ");
@@ -119,7 +117,7 @@ public class FilmQueryApp {
 		int userInput;
 		if (!(films.isEmpty())) {
 			for (int i = 0; i < films.size(); i++) {
-				System.out.println("Film ID: " + films.get(i).getFilmId() + ", Title: " +films.get(i).getTitle());
+				System.out.println("Film ID: " + films.get(i).getFilmId() + ", Title: " + films.get(i).getTitle());
 			}
 			System.out.println("\nWould you like to view the details for a specifc film? (1) ");
 			System.out.println("Would you like to view the details for each film? (2) ");
@@ -127,13 +125,12 @@ public class FilmQueryApp {
 			userInput = sc.nextInt();
 			if (userInput == 1) {
 				searchFilmId(sc);
-			}
-			else if (userInput == 2) {
+			} else if (userInput == 2) {
 				for (int i = 0; i < films.size(); i++) {
 					System.out.println(films.get(i));
 					System.out.println("***************************");
 					System.out.println();
-				} 
+				}
 			}
 			films.clear();
 		} else {

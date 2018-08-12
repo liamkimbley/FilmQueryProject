@@ -32,11 +32,11 @@ public class Film {
 		this.features = features;
 		this.rating = rating;
 	}
-	
+
 	public List<Actor> getActorsList() {
 		return actorsList;
 	}
-	
+
 	public void setActorsList(List<Actor> actorsList) {
 		this.actorsList = actorsList;
 	}
@@ -134,7 +134,8 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return  "Film ID: " + filmId + " - " + title + ",  Released: " + releaseYear +", Language: " + language +  ", Rated: " + rating + ",  " + desc + "\nActors: " + actorsList + "\n";
+		return "Film ID: " + filmId + " - " + title + ",  Released: " + releaseYear + ", Language: " + language
+				+ ", Rated: " + rating + ",  " + desc + "\nActors: " + actorsList + "\n";
 	}
 
 	@Override
