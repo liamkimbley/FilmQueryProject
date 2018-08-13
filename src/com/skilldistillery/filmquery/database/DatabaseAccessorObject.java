@@ -26,6 +26,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	private static final String getFilmsByActor = "SELECT id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features FROM film JOIN film_actor ON film.id = film_actor.film_id WHERE actor_id = ?";
 	private static final String getFilmsByKeyword = "SELECT id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features FROM film WHERE (title LIKE ? OR description LIKE ?)";
 	private static final String getLanguage = "SELECT name FROM language JOIN film ON language.id = film.language_id WHERE film.language_id = ?";
+	private static final String getCondition = "SELECT i.media_condition FROM inventory_item i JOIN film f ON f.id = i.film_id WHERE f.id = ?";
 
 
 	@Override
@@ -116,6 +117,28 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 		return actors;
 	}
+	
+//	public List<Film> getConditionByFilmId(int filmId) {
+//		List<Film> films = new ArrayList<>();
+//		ResultSet rs = null;
+//		String condition = null;
+//		
+//		try {
+//			conn = getDBConnection();
+//			stmt = conn.prepareStatement(getCondition);
+//			stmt.setInt(1, filmId);
+//			rs = stmt.executeQuery();
+//			
+//			while (rs.next()) {
+//				condition = rs.getString(1);
+//				
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return films;
+//	}
 	
 	public List<Film> getFilmsByActorId(int actorId) throws SQLException {
 		ResultSet rs = null;
