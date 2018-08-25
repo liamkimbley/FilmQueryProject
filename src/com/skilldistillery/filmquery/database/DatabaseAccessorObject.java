@@ -118,27 +118,27 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return actors;
 	}
 	
-//	public List<Film> getConditionByFilmId(int filmId) {
-//		List<Film> films = new ArrayList<>();
-//		ResultSet rs = null;
-//		String condition = null;
-//		
-//		try {
-//			conn = getDBConnection();
-//			stmt = conn.prepareStatement(getCondition);
-//			stmt.setInt(1, filmId);
-//			rs = stmt.executeQuery();
-//			
-//			while (rs.next()) {
-//				condition = rs.getString(1);
-//				
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return films;
-//	}
+	public List<Film> getConditionByFilmId(int filmId) {
+		List<Film> films = new ArrayList<>();
+		ResultSet rs = null;
+		String condition = null;
+		
+		try {
+			conn = getDBConnection();
+			stmt = conn.prepareStatement(getCondition);
+			stmt.setInt(1, filmId);
+			rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				condition = rs.getString(1);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return films;
+	}
 	
 	public List<Film> getFilmsByActorId(int actorId) throws SQLException {
 		ResultSet rs = null;
